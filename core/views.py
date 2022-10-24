@@ -12,5 +12,4 @@ class ProfilePage(APIView):
             if r_status == 200:
                 data = r.json()
                 context['pinned_repo']= data
-                print(context)
             return render(request, 'details.html', context)
