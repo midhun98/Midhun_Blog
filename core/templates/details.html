@@ -126,68 +126,29 @@
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="heading-section">
-                                                    <h4><em>Your Most Popular</em> Clips</h4>
+                                                    <h4><em>Pinned Github</em> Repositories</h4>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-3 col-sm-6">
+
+                                            {% for i in pinned_repo %}
+                                            <div class="col-lg-4 col-sm-6">
                                                 <div class="item">
-                                                    <div class="thumb">
-                                                        <img src="{% static "assets/images/clip-01.jpg" %}" alt=""
+                                                    <div >
+                                                        <a href={{ i.link }}
+                                                           target="_blank">
+                                                        <img src={{ i.image }} alt=""
                                                              style="border-radius: 23px;">
-                                                        <a href="https://www.youtube.com/watch?v=r1b03uKWk_M"
-                                                           target="_blank"><i class="fa fa-play"></i></a>
+                                                        </a>
                                                     </div>
                                                     <div class="down-content">
-                                                        <h4>First Clip</h4>
-                                                        <span><i class="fa fa-eye"></i> 250</span>
+                                                        <h4>{{ i.repo }}</h4>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-3 col-sm-6">
-                                                <div class="item">
-                                                    <div class="thumb">
-                                                        <img src="assets/images/clip-02.jpg" alt=""
-                                                             style="border-radius: 23px;">
-                                                        <a href="https://www.youtube.com/watch?v=r1b03uKWk_M"
-                                                           target="_blank"><i class="fa fa-play"></i></a>
-                                                    </div>
-                                                    <div class="down-content">
-                                                        <h4>Second Clip</h4>
-                                                        <span><i class="fa fa-eye"></i> 183</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-3 col-sm-6">
-                                                <div class="item">
-                                                    <div class="thumb">
-                                                        <img src="assets/images/clip-03.jpg" alt=""
-                                                             style="border-radius: 23px;">
-                                                        <a href="https://www.youtube.com/watch?v=r1b03uKWk_M"
-                                                           target="_blank"><i class="fa fa-play"></i></a>
-                                                    </div>
-                                                    <div class="down-content">
-                                                        <h4>Third Clip</h4>
-                                                        <span><i class="fa fa-eye"></i> 141</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-3 col-sm-6">
-                                                <div class="item">
-                                                    <div class="thumb">
-                                                        <img src="assets/images/clip-04.jpg" alt=""
-                                                             style="border-radius: 23px;">
-                                                        <a href="https://www.youtube.com/watch?v=r1b03uKWk_M"
-                                                           target="_blank"><i class="fa fa-play"></i></a>
-                                                    </div>
-                                                    <div class="down-content">
-                                                        <h4>Fourth Clip</h4>
-                                                        <span><i class="fa fa-eye"></i> 91</span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            {% endfor %}
                                             <div class="col-lg-12">
                                                 <div class="main-button">
-                                                    <a href="#">Load More Clips</a>
+{#                                                    <a href="#">Load More Clips</a>#}
                                                 </div>
                                             </div>
                                         </div>
@@ -253,11 +214,13 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <p>Copyright © 2036 <a href="#">Cyborg Gaming</a> Company. All rights reserved.
-
-                    <br>Design: <a href="https://templatemo.com" target="_blank"
-                                   title="free CSS templates">TemplateMo</a> Distributed By <a
-                            href="https://themewagon.com" target="_blank">ThemeWagon</a></p>
+                <p>Follow me on
+                    <br><br>
+                  <a href="https://www.linkedin.com/in/midhun-s-962448109/" style="margin-right:10px" target="_blank"><i class="fa-brands fa-linkedin fa-2x"></i></a>
+                  <a href="https://github.com/midhun98" style="margin-right:10px" target="_blank"><i class="fa-brands fa-github fa-2x"></i></a>
+                  <a href="https://www.instagram.com/midhun.1/" style="margin-right:10px" target="_blank"><i class="fa-brands fa-instagram fa-2x"></i></a>
+                  <a href="#" style="margin-right:10px" target="_blank"><i class="fa-brands fa-whatsapp fa-2x"></i></a>
+                </p>
             </div>
         </div>
     </div>
