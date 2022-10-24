@@ -1,0 +1,7 @@
+*.log
+*.pot
+*.pyc
+*.js
+staticfiles/
+core/migrations/
+core/__pycache__/
