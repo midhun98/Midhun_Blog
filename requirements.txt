@@ -3,3 +3,4 @@ Django==4.1
 sqlparse==0.4.3
 whitenoise==6.2.0
 django-on-heroku==1.1.2
+gunicorn==20.1.0
