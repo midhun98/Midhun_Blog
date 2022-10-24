@@ -5,5 +5,5 @@ from django.contrib.auth.decorators import permission_required
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", views.BASE, name='base'),
+    path("", views.ProfilePage.as_view(), name='pinned')
 ]
