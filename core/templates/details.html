@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
           rel="stylesheet">
 
-    <title>Midhun Profile</title>
+    <title>Profile</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -52,7 +52,7 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
+                    <a href="/" class="logo">
                         <img src="{% static "assets/images/logo-color.png" %}" alt="">
                     </a>
                     <!-- ***** Logo End ***** -->
@@ -67,11 +67,11 @@
                     <!-- ***** Search End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="browse.html">Browse</a></li>
-                        <li><a href="details.html">Details</a></li>
-                        <li><a href="streams.html">Resume</a></li>
-                        <li><a href="profile.html" class="active">Profile <img src="{% static 'assets/images/profile-header.jpg' %}" alt=""></a></li>
+{#                        <li><a href="index.html">Home</a></li>#}
+{#                        <li><a href="browse.html">Browse</a></li>#}
+{#                        <li><a href="details.html">Details</a></li>#}
+                        <li><a href="{% url 'resume_page'%}">Resume</a></li>
+                        <li><a href="/" class="active">Profile <img src="{% static 'assets/images/profile-header.jpg' %}" alt=""></a></li>
                     </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -111,7 +111,7 @@
                                         </div>
                                     </div>
                                 </div>
-{#                                <div class="col-lg-4 align-self-center">#}
+{#                                <div class="col-lg-1 align-self-center">#}
 {#                                    <ul>#}
 {#                                        <li><i class="fa-brands fa-linkedin fa-2x"></i></li>#}
 {#                                        <li><i class="fa-brands fa-github fa-2x"></i></li>#}
@@ -160,6 +160,7 @@
                 </div>
                 <!-- ***** Banner End ***** -->
 
+            {% comment %}
                 <!-- ***** Gaming Library Start ***** -->
                 <div class="gaming-library profile-library">
                     <div class="col-lg-12">
@@ -168,7 +169,7 @@
                         </div>
                         <div class="item">
                             <ul>
-                                <li><img src="assets/images/game-01.jpg" alt="" class="templatemo-item"></li>
+                                <li><img src="{% static "assets/images/game-01.jpg" %}" alt="" class="templatemo-item"></li>
                                 <li><h4>Dota 2</h4><span>Sandbox</span></li>
                                 <li><h4>Date Added</h4><span>24/08/2036</span></li>
                                 <li><h4>Hours Played</h4><span>634 H 22 Mins</span></li>
@@ -180,7 +181,7 @@
                         </div>
                         <div class="item">
                             <ul>
-                                <li><img src="assets/images/game-02.jpg" alt="" class="templatemo-item"></li>
+                                <li><img src="{% static "assets/images/game-02.jpg" %}" alt="" class="templatemo-item"></li>
                                 <li><h4>Fortnite</h4><span>Sandbox</span></li>
                                 <li><h4>Date Added</h4><span>22/06/2036</span></li>
                                 <li><h4>Hours Played</h4><span>745 H 22 Mins</span></li>
@@ -192,7 +193,7 @@
                         </div>
                         <div class="item last-item">
                             <ul>
-                                <li><img src="assets/images/game-03.jpg" alt="" class="templatemo-item"></li>
+                                <li><img src="{% static "assets/images/game-03.jpg" %}" alt="" class="templatemo-item"></li>
                                 <li><h4>CS-GO</h4><span>Sandbox</span></li>
                                 <li><h4>Date Added</h4><span>21/04/2022</span></li>
                                 <li><h4>Hours Played</h4><span>632 H 46 Mins</span></li>
@@ -205,6 +206,7 @@
                     </div>
                 </div>
                 <!-- ***** Gaming Library End ***** -->
+                {% endcomment %}
             </div>
         </div>
     </div>

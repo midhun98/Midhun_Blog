@@ -1,0 +1,263 @@
+<title>Resume</title>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #DDD;
+        color: LightGray;
+    }
+
+    tr:hover {
+        background-color: #e75e8d;
+    }
+
+</style>
+
+{% extends "base.html" %}
+{% block nav_item_about %}active{% endblock nav_item_about %}
+{% block content %}
+    {% load static %}
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="main-profile ">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <img src="{% static 'assets/images/profile.jpeg' %}" alt="" style="border-radius: 23px;">
+                    </div>
+                    <div class="col-lg-6 align-self-center">
+                        <div class="main-info header-text">
+                            <h4>Midhun S Kani</h4>
+                            <p>Python Django Developer. Interested in Web Development and Machine learning.
+                            </p>
+                            <div class="social-links mt-3">
+                                <a href="https://www.linkedin.com/in/midhun-s-962448109/" style="margin-right:10px"
+                                   target="_blank"><i class="fa-brands fa-linkedin fa-2x"></i></a>
+                                <a href="https://github.com/midhun98" style="margin-right:10px" target="_blank"><i
+                                        class="fa-brands fa-github fa-2x"></i></a>
+                                <a href="https://www.instagram.com/midhun.1/" style="margin-right:10px" target="_blank"><i
+                                        class="fa-brands fa-instagram fa-2x"></i></a>
+                                <a href="#" style="margin-right:10px" target="_blank"><i
+                                        class="fa-brands fa-whatsapp fa-2x"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="gaming-library profile-library">
+        <div class="col-lg-12">
+            <div class="heading-section" id="main">
+                <h4>Resume<a href="#" target="_blank"><i class="float-end fa-solid fa-download"></i></a></h4>
+            </div>
+            <!-- ***** Gaming Library Start ***** -->
+            <div>
+                <div class="col-lg-12">
+                    <div class="heading-section">
+                        <h4>Education</h4>
+                    </div>
+                    <div style="overflow-x:auto;">
+
+                        <table id="example" class="table">
+                            <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>Course</th>
+                                <th>Institution</th>
+                                <th>CGPA/Percentage</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr>
+                                <td>Oct 2022 - June 2024</td>
+                                <td>MCA Sp. Artificial Intelligence (Online)</td>
+                                <td>Amrita University</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>July 2018 - May 2021</td>
+                                <td>Bachelor of Computer Application</td>
+                                <td>Amrita Vishwa Vidyapeetham, Amritapuri</td>
+                                <td>8.2 CGPA</td>
+                            </tr>
+                            <tr>
+                                <td>2014-2016</td>
+                                <td>HSE - Mathematics, Physics, Chemistry, Computer</td>
+                                <td>Bharath Montessori Higher Secondary School, Tirunelveli, Tamil Nadu</td>
+                                <td>72%</td>
+                            </tr>
+                            <tr>
+                                <td>2012-2014</td>
+                                <td>CBSE 10th</td>
+                                <td>Chinmaya Vidyalaya ,Thiruvananthapuram Kerala</td>
+                                <td>9.2 CGPA</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+            <br><br>
+            <!-- ***** Gaming Library End ***** -->
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6" data-aos="fade-up">
+                        <h3 class="resume-title">Academic Projects</h3>
+                        <br>
+                        <div class="resume-item">
+                            <h4>Plant disease prediction using deep learning (Major Project)</h4>
+                            <br>
+                            <ul style="color:LightGray;">
+                                <li>● Detect the diseases in plants with the help of Convolutional Neural Network(CNN).
+                                    After detecting the disease we will provide the remedies to cure it.
+                                </li>
+                                <li>● This project will be helpful for the farmers or gardeners to find whether their
+                                    crops suffer from diseases or not.
+                                </li>
+                                <li>● Created a full stack web application using the Flask Framework to deploy the
+                                    app.
+                                </li>
+                            </ul>
+                        </div>
+                        <br>
+                        <div class="resume-item">
+                            <h4>Sentiment Analysis using Chatbot (Minor Project)</h4>
+                            <br>
+                            <ul style="color:LightGray;">
+                                <li>● Detect the sentiment of a person using a chatbot that asks the user some questions
+                                    to identify the person's
+                                    sentiment using Natural Language processing.
+                                </li>
+                                <li>● Trained Using a dataset containing emotions for different sentences. Used
+                                    different NLP methods to clean the
+                                    data and improve the accuracy.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="resume-title">Professional Experience</h3>
+                        <br>
+                        <div class="resume-item">
+                            <h4>Programmer Trainee</h4>
+                            <h5>2021 Jul - Feb 2022</h5>
+                            <p style="color:LightGray;"><em>Cognizant</em></p>
+                            <ul style="color:LightGray;">
+                                <li>● Worked in the organization as a Programmer Trainee.</li>
+                                <li>● Worked in SBI general Insurance project by providing the after deployment
+                                    support to the client side.
+                                </li>
+                                <li>● Resolved the tickets raised and assigned it to the concerned teams within the
+                                    specified time.
+                                </li>
+                                <li>● Worked on Ebao Tools and Oracle MySql to resolve the incidents.</li>
+                                <li>● Provided solutions and support for constant deployment that goes on with the
+                                    production line
+                                </li>
+                            </ul>
+                        </div>
+                        <br>
+                        <div class="resume-item">
+                            <h4>Junior System Engineer</h4>
+                            <h5>Dec 2021 - Sep 2022</h5>
+                            <p style="color:LightGray;"><em>Reizend</em></p>
+                            <ul style="color:LightGray;">
+                                <li>● Worked as a Django developer at Reizend IT Consultants. Where I was working in a
+                                    project called Sales Channel
+                                    Automations (SCA) which is used for billing purposes.
+                                </li>
+                                <li>● Handled full stack programming tasks for the development of web applications and
+                                    REST APIs for SCA.
+                                </li>
+                                <li>● Significantly improved the performance and reduced latency for real-time reports
+                                    using pandas.
+                                </li>
+                                <li>● Have implemented reusable code to reduce the development time of new features.
+                                </li>
+                                <li>● Have done POC regarding the implementation of new features.</li>
+                            </ul>
+                            <br>
+                        </div>
+                    </div>
+                    <hr style="color:White;">
+                    <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="resume-title">Certifications</h3>
+                        <br>
+                        <div class="resume-item">
+                            <h4>Data Science and Machine Learning bootcamp</h4>
+                            <p style="color:LightGray;">
+                                Learned about creating neural networks and understood how to use them to perform deep
+                                learning. Using
+                                data science algorithms to analyze data in real-life projects such as spam
+                                classification and image recognition.
+                            </p>
+                        </div>
+                        <br>
+                        <div class="resume-item">
+                            <h4>Coding teacher for Suvidha Foundation</h4>
+                            <p style="color:LightGray;">
+                                Worked as an intern for Suvidha Mahila Mandal which is a non profit organization as a
+                                coding teacher to give education
+                                to the financially challenged students. Created the syllabus to learn Python with web
+                                development from basics from
+                                day 1 to 180 roadmap which consisted of revisions, assignments and quizzes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ***** Gaming Library Start ***** -->
+            <br><br>
+            <div>
+                <div class="col-lg-12">
+                    <div class="heading-section">
+                        <h4>Skills</h4>
+                    </div>
+                    <div style="overflow-x:auto;">
+
+                        <table id="example" class="table">
+                            <tr>
+                                <th>Programming Language:</th>
+                                <td>Python</td>
+                            </tr>
+                            <tr>
+                                <th>Front End:</th>
+                                <td>HTML, CSS, JS, Jinja, Ajax, Bootstrap</td>
+                            </tr>
+                            <tr>
+                                <th>Python Libraries:</th>
+                                <td>Scikit learn, Seaborn, Matplotlib, Numpy, Pandas, Django,
+                                    Django Rest Framework, Supervised and Unsupervised machine learning algorithms
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Database:</th>
+                                <td>SQL</td>
+                            </tr>
+                            <tr>
+                                <th>Code Versioning:</th>
+                                <td>Git</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+            <br><br>
+            <!-- ***** Gaming Library End ***** -->
+
+
+        </div>
+    </div>
+
+
+{% endblock %}

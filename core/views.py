@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views import generic
 from rest_framework.views import APIView
 import requests
 # Create your views here.
@@ -13,3 +14,9 @@ class ProfilePage(APIView):
                 data = r.json()
                 context['pinned_repo']= data
             return render(request, 'details.html', context)
+
+class ResumePage(generic.TemplateView):
+    def get(self, request, *args, **kwargs):
+        if request.method == "GET":
+            context = {}
+            return render(request, 'resume.html', context)
