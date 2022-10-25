@@ -1,1 +1,2 @@
-My personal blog in development
+My personal blog created using Django  
+https://midhun98-blog.herokuapp.com/
