@@ -20,3 +20,9 @@ class ResumePage(generic.TemplateView):
         if request.method == "GET":
             context = {}
             return render(request, 'resume.html', context)
+
+class ContactsPage(generic.TemplateView):
+    def get(self, request, *args, **kwargs):
+        if request.method == "GET":
+            context = {}
+            return render(request, 'contacts.html', context)
