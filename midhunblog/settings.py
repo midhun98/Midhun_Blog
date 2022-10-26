@@ -28,6 +28,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Set the parameters for sending email
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = '41176088b098b5'
+EMAIL_HOST_PASSWORD = '9a6eaf03676895'
+EMAIL_PORT = '2525'
 
 # Application definition
 
@@ -39,7 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
-    'rest_framework'
+    'rest_framework',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
