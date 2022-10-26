@@ -134,3 +134,5 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 django_heroku.settings(locals())
+
+CSRF_TRUSTED_ORIGINS = ['https://web-production-0d5c.up.railway.app']
