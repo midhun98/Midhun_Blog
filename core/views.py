@@ -38,15 +38,10 @@ class ContactsPage(generic.TemplateView):
             context = {}
             form = forms.ContactForm(request.POST)
             if form.is_valid():
-                name = form.data['name']
                 email = form.data['email']
                 subject = form.data['subject']
                 content = form.data['content']
-                print(name)
-                print(email)
-                print(subject)
-                print(content)
-                send_mail(subject, subject, email, ['midhunskani@gmail.com'])
+                send_mail(subject, content, email, ['midhunskani@gmail.com'])
                 return redirect('contacts_page')
             else:
                 messages.warning(request, 'Please enter valid details.')
