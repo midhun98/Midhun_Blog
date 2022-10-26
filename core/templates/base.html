@@ -66,11 +66,10 @@
                     <!-- ***** Search End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-{#                        <li><a href="index.html">Home</a></li>#}
-{#                        <li><a href="browse.html">Browse</a></li>#}
-{#                        <li><a href="details.html">Details</a></li>#}
-                        <li><a href="{% url 'resume_page'%}">Resume</a></li>
-                        <li><a href="/">Profile <img src="{% static 'assets/images/profile-header.jpg' %}" alt=""></a></li>
+                        {% block topbar %}
+                            {% include "topbar.html" %}
+                        {% endblock topbar %}
+
                     </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -106,7 +105,7 @@
                   <a href="https://www.linkedin.com/in/midhuns98/" style="margin-right:10px" target="_blank"><i class="fa-brands fa-linkedin fa-2x"></i></a>
                   <a href="https://github.com/midhun98" style="margin-right:10px" target="_blank"><i class="fa-brands fa-github fa-2x"></i></a>
                   <a href="https://www.instagram.com/midhun.1/" style="margin-right:10px" target="_blank"><i class="fa-brands fa-instagram fa-2x"></i></a>
-                  <a href="#" style="margin-right:10px" target="_blank"><i class="fa-brands fa-whatsapp fa-2x"></i></a>
+                  <a href="https://wa.link/i7i65w" style="margin-right:10px" target="_blank"><i class="fa-brands fa-whatsapp fa-2x"></i></a>
                 </p>
             </div>
         </div>
