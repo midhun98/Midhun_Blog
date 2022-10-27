@@ -1,2 +1,2 @@
 My personal blog created using Django  
-https://midhun98-blog.herokuapp.com/
+https://www.midhun98.com/
