@@ -18,6 +18,8 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="swiper" level="application" />
     <orderEntry type="library" name="iconify-icon" level="application" />
+    <orderEntry type="library" name="isotope-layout" level="application" />
+    <orderEntry type="library" name="twitter-bootstrap" level="application" />
   </component>
   <component name="PyDocumentationSettings">
     <option name="format" value="PLAIN" />
