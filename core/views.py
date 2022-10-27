@@ -49,3 +49,8 @@ class ContactsPage(generic.TemplateView):
                 context['communication_form'] = form
 
             return render(request, 'contacts.html', context)
+
+class BlogPage(generic.TemplateView):
+    def get(self, request, *args, **kwargs):
+        context = {}
+        return render(request, 'blog.html', context)
