@@ -3,8 +3,28 @@
 
 
 {% block content %}
-    {% load static %}
+    <style>
+        p {
+            color: Black;
+        }
+        input {
+            width: 100%;
+            border-radius: 6px;
+            padding: 5px;
+        }
+    </style>
 
-   <h1 style="color: #0a53be"> In development</h1>
+    <div class="heading-section">
+        <h4><em>Create a new</em> blog</h4>
+    </div>
+
+    <div class="main-profile ">
+        <form method="post" enctype="multipart/form-data" action="{% url 'blog_page' %}">
+            {% csrf_token %}
+            {{ blog_form.media }}
+            {{ blog_form.as_p }}
+            <button type="submit" class="btn btn-primary mt-4">Create Blog</button>
+        </form>
+    </div>
 
 {% endblock %}
