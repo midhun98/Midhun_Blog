@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'crispy_forms',
     'corsheaders',
+    'mptt',
+    'froala_editor'
 ]
 
 MIDDLEWARE = [

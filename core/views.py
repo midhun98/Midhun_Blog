@@ -2,9 +2,15 @@ from django.shortcuts import render, redirect
 from django.views import generic
 from rest_framework.views import APIView
 import requests
-from . import forms
+from . import forms, models
 from django.core.mail import send_mail
 from django.contrib import messages
+from django import http
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.models import User
+from django.urls import reverse
+
 # Create your views here.
 
 class ProfilePage(APIView):
@@ -54,3 +60,70 @@ class BlogPage(generic.TemplateView):
     def get(self, request, *args, **kwargs):
         context = {}
         return render(request, 'blog.html', context)
+
+
+def login_request(request):
+    if request.method == "POST":
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                if user.groups.exists():
+                    group = user.groups.all()[0].name
+                    if group == "staff":
+                        return http.HttpResponseRedirect(reverse('staff_view'))
+                    elif group == "admin":
+                        return http.HttpResponseRedirect(reverse('admin_view'))
+                    elif group == "student":
+                        return http.HttpResponseRedirect(reverse('student_view'))
+                    elif group == "editor":
+                        return http.HttpResponseRedirect(reverse('editor_view'))
+                    else:
+                        pass
+                else:
+                    return http.HttpResponseRedirect(reverse('base'))
+        else:
+            messages.warning(request, 'Username is not valid. Please enter a valid username and password.')
+    form = AuthenticationForm()
+    return render(request=request, template_name="login.html", context={"login_form": form})
+
+
+class UserCreateView(generic.TemplateView):
+    template_name = "user_create.html"
+
+    def get_context_data(self, **kwargs):
+        context ={}
+        form = forms.UserCreateForm()
+        sub_form = forms.ProfileCreateForm(self.request.user)
+        context['form'] = form
+        context['sub_form'] = sub_form
+        return context
+
+    def post(self, request, *args, **kwargs):
+        form = forms.UserCreateForm(request.POST)
+        sub_form = forms.ProfileCreateForm(request.user, request.POST)
+        if form.is_valid() and sub_form.is_valid():
+            password = request.POST.get('password')
+            username = request.POST.get('username')
+            first_name = request.POST.get('first_name')
+            last_name = request.POST.get('last_name')
+            email = request.POST.get('email')
+            country = request.POST.get('country')
+            mobile = request.POST.get('mobile')
+            role = request.POST.get('role')
+
+            roleobj = models.Role.objects.get(id=role)
+
+            user = User(username=username, first_name=first_name, last_name=last_name, email=email, is_staff=True)
+            user.set_password(password)
+            user.save()
+            user.groups.add(roleobj.group)
+            userid = user.id
+            profile = models.Profile(country=country, mobile=mobile, role_id=roleobj.id, user_id=userid)
+            profile.save()
+            return http.HttpResponseRedirect(reverse('login'))
+        else:
+            return render(request, self.template_name, {'form': form, 'sub_form': sub_form})
