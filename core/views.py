@@ -59,7 +59,26 @@ class ContactsPage(generic.TemplateView):
 class BlogPage(generic.TemplateView):
     def get(self, request, *args, **kwargs):
         context = {}
+        form = forms.BlogForm()
+        context['blog_form'] = form
         return render(request, 'blog.html', context)
+
+    def post(self, request, *args, **kwargs):
+        form = forms.BlogForm(request.POST)
+        context = {}
+        if form.is_valid():
+            title = form.data['title']
+            content = form.data['content']
+            tags = form.data['tags']
+            user = request.user
+            models.BlogModel.objects.create(user=user, title=title, content=content, tags=tags)
+            return redirect('blog_page')
+        else:
+            messages.warning(request, 'Please enter valid details.')
+            form = forms.BlogForm()
+            context['blog_form'] = form
+
+        return render(request, 'contacts.html', context)
 
 
 def login_request(request):

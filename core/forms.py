@@ -91,3 +91,25 @@ class ProfileCreateForm(forms.ModelForm):
 
     def __init__(self, user, *args, **kwargs):
         super(ProfileCreateForm, self).__init__(*args, **kwargs)
+
+class BlogForm(forms.ModelForm):
+    class Meta:
+        model = models.BlogModel
+        fields = ('title', 'tags', 'content')
+        labels = {
+            'title': 'Title',
+            'content': 'Content',
+            'tags': 'Tags'
+        }
+
+    def clean(self):
+        cleaned_data = super(BlogForm, self).clean()
+        title = cleaned_data.get('title')
+        content = cleaned_data.get("content")
+
+        if title in [None,'']  :
+            self.add_error('title', "Title is required.")
+
+        if content in [None,'']:
+            self.add_error('content', "Content is required.")
+
