@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h3 style="color: white;">{{ profile.title }}<button onclick="location.href='{% url 'blog_list' %}'" type="button" class="float-end btn btn-primary">Back</button></h3>
+    <br>
+    <h5><span style="color: white; font-size:20px" >Tags : </span><em>{{ profile.tags }}</em></h5>
+    <br>
+    {{ profile.content|safe }}
+    <br>
+    <ol>
+        <li style="color: white"><span style="color: royalblue">Created at </span>{{ profile.created_at }}</li>
+        <li style="color: white"><span style="color: royalblue">Updated at </span>{{ profile.updated_at }}</li>
+        <li>&empty;</li>
+        {% if profile.user %}
+            <li style="color: white"><span style="color: royalblue">Created by </span>{{ profile.user }}</li>
+        {% endif %}
+    </ol>
+{% endblock %}
