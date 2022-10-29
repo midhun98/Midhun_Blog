@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.views import generic
 from rest_framework.views import APIView
@@ -150,6 +151,6 @@ class UserCreateView(generic.TemplateView):
 class BlogListView(generic.TemplateView):
     def get(self, request, *args, **kwargs):
         context = {}
-        data = models.BlogModel.objects.values('title','tags','content')
+        data = models.BlogModel.objects.values('title','tags','content','id')
         context['data'] = data
         return render(request, 'blog_list.html', context)

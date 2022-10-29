@@ -1,4 +1,4 @@
-<title>Resume</title>
+<title>All blogs</title>
 {% extends "base.html" %}
 {% block content %}
 
@@ -39,7 +39,7 @@
             <tr>
                 <th>Title</th>
                 <th>Tag</th>
-                <th>Code</th>
+                <th>View</th>
             </tr>
             </thead>
             <tbody>
@@ -47,7 +47,10 @@
                 <tr class="apples">
                     <td>{{ i.title }}</td>
                     <td>{{ i.tags }}</td>
-                    <td>{{ i.content|safe }}</td>
+                    <td>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ i.id }}">View
+                        </button>
+                    </td>
                 </tr>
             {% endfor %}
             </tbody>
@@ -61,5 +64,25 @@
         });
     </script>
 
+    <!-- Modal -->
+    {% for i in data %}
+    <div class="modal fade" id="exampleModal-{{ i.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel" style="color: black;">{{ i.title }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p style="color: black">{{ i.content|safe }}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <!-- End Modal -->
 
 {% endblock %}
