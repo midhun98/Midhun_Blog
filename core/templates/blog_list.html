@@ -1,0 +1,65 @@
+<title>Resume</title>
+{% extends "base.html" %}
+{% block content %}
+
+    <style>
+        label {
+            color: LightGray;
+        }
+
+        input {
+            width: 30px;
+
+        }
+
+        .dataTables_info {
+            color: white;
+        }
+
+        a {
+            color: royalblue;
+        }
+
+        p {
+            color: white;
+        }
+
+        td {
+            color: white;
+        }
+    </style>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+
+    <div class="table-responsive">
+        <table id="example" class="table table-hover table-striped table-dark">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Tag</th>
+                <th>Code</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in data %}
+                <tr class="apples">
+                    <td>{{ i.title }}</td>
+                    <td>{{ i.tags }}</td>
+                    <td>{{ i.content|safe }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
+
+
+{% endblock %}

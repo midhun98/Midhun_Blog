@@ -11,5 +11,6 @@ urlpatterns = [
     path("blog/", views.BlogPage.as_view(), name='blog_page'),
     path("login/", views.login_request, name='login'),
     path("user_create/", views.UserCreateView.as_view(), name='user_create'),
+    path("blog-list/", views.BlogListView.as_view(), name='blog_list'),
 
 ]
