@@ -154,3 +154,10 @@ class BlogListView(generic.TemplateView):
         data = models.BlogModel.objects.values('title','tags','content','id')
         context['data'] = data
         return render(request, 'blog_list.html', context)
+
+class BlogDetailView(generic.TemplateView):
+    def get(self, request, *args, **kwargs):
+        context = super(BlogDetailView, self).get_context_data(**kwargs)
+        profile = models.BlogModel.objects.get(id=self.kwargs['pk'])
+        context['profile'] = profile
+        return render(request, 'blog_detail.html', context)
