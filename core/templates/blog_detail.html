@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% block title %} {{ profile.title }} {% endblock title %}
 {% block content %}
     <h3 style="color: white;">{{ profile.title }}<button onclick="location.href='{% url 'blog_list' %}'" type="button" class="float-end btn btn-primary">Back</button></h3>
     <br>
