@@ -72,7 +72,7 @@ class BlogPage(generic.TemplateView):
             tags = form.data['tags']
             user = request.user
             models.BlogModel.objects.create(user=user, title=title, content=content, tags=tags)
-            return redirect('blog_page')
+            return redirect('blog_list')
         else:
             messages.warning(request, 'Please enter valid details.')
             form = forms.BlogForm()
@@ -146,3 +146,10 @@ class UserCreateView(generic.TemplateView):
             return http.HttpResponseRedirect(reverse('login'))
         else:
             return render(request, self.template_name, {'form': form, 'sub_form': sub_form})
+
+class BlogListView(generic.TemplateView):
+    def get(self, request, *args, **kwargs):
+        context = {}
+        data = models.BlogModel.objects.values('title','tags','content')
+        context['data'] = data
+        return render(request, 'blog_list.html', context)
