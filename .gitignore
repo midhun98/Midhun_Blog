@@ -5,3 +5,4 @@
 staticfiles/
 core/migrations/
 core/__pycache__/
+db.sqlite3
