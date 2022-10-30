@@ -192,3 +192,11 @@ class BlogUpdateView(generic.TemplateView):
             context['blog_form'] = form
 
         return render(request, 'blog/blog_update.html', context)
+
+
+class BlogDeleteView(generic.TemplateView):
+    def get(self, request, *args, **kwargs):
+        blog = models.BlogModel.objects.get(id=self.kwargs['pk'])
+        blog.delete()
+        messages.success(request,"Deleted Successfully")
+        return redirect('blog_list')
