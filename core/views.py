@@ -202,3 +202,4 @@ class BlogDeleteView(generic.TemplateView):
         blog.delete()
         messages.success(request, "Deleted Successfully")
         return redirect('blog_list')
+
