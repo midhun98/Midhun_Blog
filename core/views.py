@@ -12,6 +12,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
 from django.urls import reverse
 
+
 # Create your views here.
 
 class ProfilePage(APIView):
@@ -24,6 +25,7 @@ class ProfilePage(APIView):
                 data = r.json()
                 context['pinned_repo'] = data
             return render(request, 'details.html', context)
+
 
 class ResumePage(generic.TemplateView):
     def get(self, request, *args, **kwargs):
@@ -56,6 +58,7 @@ class ContactsPage(generic.TemplateView):
                 context['communication_form'] = form
 
             return render(request, 'contacts.html', context)
+
 
 class BlogPage(generic.TemplateView):
     def get(self, request, *args, **kwargs):
@@ -115,7 +118,7 @@ class UserCreateView(generic.TemplateView):
     template_name = "user_create.html"
 
     def get_context_data(self, **kwargs):
-        context ={}
+        context = {}
         form = forms.UserCreateForm()
         sub_form = forms.ProfileCreateForm(self.request.user)
         context['form'] = form
@@ -148,12 +151,14 @@ class UserCreateView(generic.TemplateView):
         else:
             return render(request, self.template_name, {'form': form, 'sub_form': sub_form})
 
+
 class BlogListView(generic.TemplateView):
     def get(self, request, *args, **kwargs):
         context = {}
-        data = models.BlogModel.objects.values('title','tags','content','id')
+        data = models.BlogModel.objects.values('title', 'tags', 'content', 'id')
         context['data'] = data
         return render(request, 'blog_list.html', context)
+
 
 class BlogDetailView(generic.TemplateView):
     def get(self, request, *args, **kwargs):
@@ -161,3 +166,29 @@ class BlogDetailView(generic.TemplateView):
         profile = models.BlogModel.objects.get(id=self.kwargs['pk'])
         context['profile'] = profile
         return render(request, 'blog_detail.html', context)
+
+
+class BlogUpdateView(generic.TemplateView):
+    def get(self, request, *args, **kwargs):
+        context = {}
+        blog = models.BlogModel.objects.get(id=self.kwargs['pk'])
+        blog_data = {'content': blog.content, 'tags': blog.tags, 'title': blog.title}
+        form = forms.BlogForm(initial=blog_data)
+        context['blog_form'] = form
+        return render(request, 'blog/blog_update.html', context)
+
+    def post(self, request, *args, **kwargs):
+        form = forms.BlogForm(request.POST)
+        context = {}
+        if form.is_valid():
+            title = form.data['title']
+            content = form.data['content']
+            tags = form.data['tags']
+            models.BlogModel.objects.filter(id=self.kwargs['pk']).update(title=title, content=content, tags=tags)
+            return redirect('blog_list')
+        else:
+            messages.warning(request, 'Please enter valid details.')
+            form = forms.BlogForm()
+            context['blog_form'] = form
+
+        return render(request, 'blog/blog_update.html', context)
