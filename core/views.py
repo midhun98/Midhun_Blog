@@ -1,3 +1,4 @@
+import datetime
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.views import generic
@@ -184,7 +185,8 @@ class BlogUpdateView(generic.TemplateView):
             title = form.data['title']
             content = form.data['content']
             tags = form.data['tags']
-            models.BlogModel.objects.filter(id=self.kwargs['pk']).update(title=title, content=content, tags=tags)
+            models.BlogModel.objects.filter(id=self.kwargs['pk']).update(title=title, content=content, tags=tags,
+                                                                         updated_at=datetime.datetime.now())
             return redirect('blog_list')
         else:
             messages.warning(request, 'Please enter valid details.')
@@ -198,5 +200,5 @@ class BlogDeleteView(generic.TemplateView):
     def get(self, request, *args, **kwargs):
         blog = models.BlogModel.objects.get(id=self.kwargs['pk'])
         blog.delete()
-        messages.success(request,"Deleted Successfully")
+        messages.success(request, "Deleted Successfully")
         return redirect('blog_list')
