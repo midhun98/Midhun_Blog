@@ -65,7 +65,7 @@ class BlogPage(generic.TemplateView):
         context = {}
         form = forms.BlogForm()
         context['blog_form'] = form
-        return render(request, 'blog.html', context)
+        return render(request, 'blog/blog_create.html', context)
 
     def post(self, request, *args, **kwargs):
         form = forms.BlogForm(request.POST)
@@ -157,7 +157,7 @@ class BlogListView(generic.TemplateView):
         context = {}
         data = models.BlogModel.objects.values('title', 'tags', 'content', 'id')
         context['data'] = data
-        return render(request, 'blog_list.html', context)
+        return render(request, 'blog/blog_list.html', context)
 
 
 class BlogDetailView(generic.TemplateView):
@@ -165,7 +165,7 @@ class BlogDetailView(generic.TemplateView):
         context = super(BlogDetailView, self).get_context_data(**kwargs)
         profile = models.BlogModel.objects.get(id=self.kwargs['pk'])
         context['profile'] = profile
-        return render(request, 'blog_detail.html', context)
+        return render(request, 'blog/blog_detail.html', context)
 
 
 class BlogUpdateView(generic.TemplateView):
