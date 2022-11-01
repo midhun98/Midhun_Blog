@@ -10,3 +10,4 @@ django-crispy-forms==1.14.0
 django-cors-headers==3.13.0
 django-froala-editor==4.0.15
 django-mptt==0.14.0
+python-decouple==3.6
