@@ -156,7 +156,7 @@ class UserCreateView(generic.TemplateView):
 class BlogListView(generic.TemplateView):
     def get(self, request, *args, **kwargs):
         context = {}
-        data = models.BlogModel.objects.values('title', 'tags', 'content', 'id')
+        data = models.BlogModel.objects.values('title', 'tags', 'content', 'id').order_by('title')
         context['data'] = data
         return render(request, 'blog/blog_list.html', context)
 
