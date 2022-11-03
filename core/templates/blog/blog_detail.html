@@ -1,9 +1,18 @@
 {% extends 'base.html' %}
 {% block title %} {{ profile.title }} {% endblock title %}
 {% block content %}
-    <h3 style="color: white;">{{ profile.title }}<button onclick="location.href='{% url 'blog_list' %}'" type="button" class="float-end btn btn-primary">Back</button></h3>
+    <style>
+        p {
+            color: white;
+        }
+    </style>
+
+    <h3 style="color: white;">{{ profile.title }}
+        <button onclick="location.href='{% url 'blog_list' %}'" type="button" class="float-end btn btn-primary">Back
+        </button>
+    </h3>
     <br>
-    <h5><span style="color: white; font-size:20px" >Tags : </span><em>{{ profile.tags }}</em></h5>
+    <h5><span style="color: white; font-size:20px">Tags : </span><em>{{ profile.tags }}</em></h5>
     <br>
     {{ profile.content|safe }}
     <br>
