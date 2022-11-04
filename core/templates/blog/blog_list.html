@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %} All blogs {% endblock title %}
 {% block content %}
-
+{% include 'messages.html' %}
     <style>
         label {
             color: LightGray;
@@ -58,8 +58,8 @@
                             <button type="button" class="btn btn-primary"
                                     onclick="location.href='{% url 'blog_update' i.id %}'">Edit
                             </button>
-                            <button type="button" class="btn btn-danger"
-                                    onclick="location.href='{% url 'blog_delete' i.id %}'">Delete
+                            <button class="btn btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#deleteModal-{{ i.id }}">Delete
                             </button>
                         {% endif %}
                         <button type="button" class="btn btn-primary"
@@ -98,6 +98,28 @@
                 </div>
             </div>
         </div>
+
+        <div class="modal fade" id="deleteModal-{{ i.id }}" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel" style="color: black;"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to delete
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger"
+                                onclick="location.href='{% url 'blog_delete' i.id %}'">Delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     {% endfor %}
     <!-- End Modal -->
 
