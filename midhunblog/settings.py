@@ -30,10 +30,10 @@ DEBUG = config('DEBUG')
 ALLOWED_HOSTS = []
 
 # Set the parameters for sending email
-EMAIL_HOST = 'smtp.mailtrap.io'
-EMAIL_HOST_USER = '41176088b098b5'
-EMAIL_HOST_PASSWORD = '9a6eaf03676895'
-EMAIL_PORT = '2525'
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = config('EMAIL_PORT')
 
 # Application definition
 
