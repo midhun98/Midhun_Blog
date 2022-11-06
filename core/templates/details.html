@@ -1,133 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7LKQMQ8T53"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-7LKQMQ8T53');
-    </script>
-    <!-- End Google tag (gtag.js) -->
-
+<!-- ***** Header Area End ***** -->
+{% extends "base.html" %}
+{% block title %} Profile {% endblock title %}
+{% block content %}
     {% load static %}
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-          rel="stylesheet">
-
-    <title>Profile</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/templatemo-cyborg-gaming.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-    <!--
-
-    TemplateMo 579 Cyborg Gaming
-
-    https://templatemo.com/tm-579-cyborg-gaming
-
-    -->
-</head>
-
-<body>
-
-<!-- ***** Preloader Start ***** -->
-<div id="js-preloader" class="js-preloader">
-    <div class="preloader-inner">
-        <span class="dot"></span>
-        <div class="dots">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </div>
-</div>
-<!-- ***** Preloader End ***** -->
-
-<!-- ***** Header Area Start ***** -->
-<header class="header-area header-sticky">
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <nav class="main-nav">
-                    <!-- ***** Logo Start ***** -->
-                    <a href="/" class="logo">
-                        <img src="{% static "assets/images/logo-color.png" %}" alt="">
-                    </a>
-                    <!-- ***** Logo End ***** -->
-                    <!-- ***** Search End ***** -->
-{#                    <div class="search-input">#}
-{#                        <form id="search" action="#">#}
-{#                            <input type="text" placeholder="Type Something" id='searchText' name="searchKeyword"#}
-{#                                   onkeypress="handle"/>#}
-{#                            <i class="fa fa-search"></i>#}
-{#                        </form>#}
-{#                    </div>#}
-                    <!-- ***** Search End ***** -->
-                    <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
-                        {% block topbar %}
-                            {% include "topbar.html" %}
-                        {% endblock topbar %}
-                    </ul>
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
-                    <!-- ***** Menu End ***** -->
-                </nav>
-            </div>
-        </div>
-    </div>
-</header>
-<!-- ***** Header Area End ***** -->
-
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="page-content">
-
+            <div class="col-lg-12">
                 <!-- ***** Banner Start ***** -->
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="main-profile ">
                             <div class="row">
                                 <div class="col-lg-4">
-                                    <img src="{% static 'assets/images/profile.jpeg' %}" alt="" style="border-radius: 23px;">
+                                    <img src="{% static 'assets/images/profile.jpeg' %}" alt=""
+                                         style="border-radius: 23px;">
                                 </div>
                                 <div class="col-lg-6 align-self-center">
                                     <div class="main-info header-text">
-                                        {#                      <span>Offline</span>#}
                                         <h4>Midhun S Kani</h4>
-                                        <p style="color: LightGray;">Python Django Developer. Interested in Web Development and Machine learning.
+                                        <p style="color: LightGray;">Python Django Developer. Interested in Web
+                                            Development and Machine learning.
                                         </p>
                                         <div class="social-links mt-3">
-                                              <a href="https://www.linkedin.com/in/midhuns98/" style="margin-right:10px" target="_blank"><i class="fa-brands fa-linkedin fa-2x"></i></a>
-                                              <a href="https://github.com/midhun98" style="margin-right:10px" target="_blank"><i class="fa-brands fa-github fa-2x"></i></a>
-                                              <a href="https://www.instagram.com/midhun.1/" style="margin-right:10px" target="_blank"><i class="fa-brands fa-instagram fa-2x"></i></a>
-                                              <a href="https://wa.link/i7i65w" style="margin-right:10px" target="_blank"><i class="fa-brands fa-whatsapp fa-2x"></i></a>
+                                            <a href="https://www.linkedin.com/in/midhuns98/" style="margin-right:10px"
+                                               target="_blank"><i class="fa-brands fa-linkedin fa-2x"></i></a>
+                                            <a href="https://github.com/midhun98" style="margin-right:10px"
+                                               target="_blank"><i class="fa-brands fa-github fa-2x"></i></a>
+                                            <a href="https://www.instagram.com/midhun.1/" style="margin-right:10px"
+                                               target="_blank"><i class="fa-brands fa-instagram fa-2x"></i></a>
+                                            <a href="https://wa.link/i7i65w" style="margin-right:10px"
+                                               target="_blank"><i class="fa-brands fa-whatsapp fa-2x"></i></a>
                                         </div>
                                     </div>
                                 </div>
-{#                                <div class="col-lg-1 align-self-center">#}
-{#                                    <ul>#}
-{#                                        <li><i class="fa-brands fa-linkedin fa-2x"></i></li>#}
-{#                                        <li><i class="fa-brands fa-github fa-2x"></i></li>#}
-{#                                        <li><i class="fa-brands fa-instagram fa-2x"></i></li>#}
-{#                                        <li><i class="fa-brands fa-whatsapp fa-2x"></i></li>#}
-{#                                    </ul>#}
-{#                                </div>#}
                             </div>
                             <div class="row">
                                 <div class="col-lg-12">
@@ -140,26 +46,21 @@
                                             </div>
 
                                             {% for i in pinned_repo %}
-                                            <div class="col-lg-4 col-sm-6">
-                                                <div class="item">
-                                                    <div >
-                                                        <a href={{ i.link }}
-                                                           target="_blank">
-                                                        <img src={{ i.image }} alt=""
-                                                             style="border-radius: 23px;">
-                                                        </a>
-                                                    </div>
-                                                    <div class="down-content">
-                                                        <h4>{{ i.repo }}</h4>
+                                                <div class="col-lg-4 col-sm-6">
+                                                    <div class="item">
+                                                        <div>
+                                                            <a href={{ i.link }}
+                                                                       target="_blank">
+                                                                <img src={{ i.image }} alt=""
+                                                                     style="border-radius: 23px;">
+                                                            </a>
+                                                        </div>
+                                                        <div class="down-content">
+                                                            <h4>{{ i.repo }}</h4>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
                                             {% endfor %}
-                                            <div class="col-lg-12">
-                                                <div class="main-button">
-{#                                                    <a href="#">Load More Clips</a>#}
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -168,88 +69,7 @@
                     </div>
                 </div>
                 <!-- ***** Banner End ***** -->
-
-            {% comment %}
-                <!-- ***** Gaming Library Start ***** -->
-                <div class="gaming-library profile-library">
-                    <div class="col-lg-12">
-                        <div class="heading-section">
-                            <h4><em>Your Gaming</em> Library</h4>
-                        </div>
-                        <div class="item">
-                            <ul>
-                                <li><img src="{% static "assets/images/game-01.jpg" %}" alt="" class="templatemo-item"></li>
-                                <li><h4>Dota 2</h4><span>Sandbox</span></li>
-                                <li><h4>Date Added</h4><span>24/08/2036</span></li>
-                                <li><h4>Hours Played</h4><span>634 H 22 Mins</span></li>
-                                <li><h4>Currently</h4><span>Downloaded</span></li>
-                                <li>
-                                    <div class="main-border-button border-no-active"><a href="#">Donwloaded</a></div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="item">
-                            <ul>
-                                <li><img src="{% static "assets/images/game-02.jpg" %}" alt="" class="templatemo-item"></li>
-                                <li><h4>Fortnite</h4><span>Sandbox</span></li>
-                                <li><h4>Date Added</h4><span>22/06/2036</span></li>
-                                <li><h4>Hours Played</h4><span>745 H 22 Mins</span></li>
-                                <li><h4>Currently</h4><span>Downloaded</span></li>
-                                <li>
-                                    <div class="main-border-button border-no-active"><a href="#">Donwloaded</a></div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="item last-item">
-                            <ul>
-                                <li><img src="{% static "assets/images/game-03.jpg" %}" alt="" class="templatemo-item"></li>
-                                <li><h4>CS-GO</h4><span>Sandbox</span></li>
-                                <li><h4>Date Added</h4><span>21/04/2022</span></li>
-                                <li><h4>Hours Played</h4><span>632 H 46 Mins</span></li>
-                                <li><h4>Currently</h4><span>Downloaded</span></li>
-                                <li>
-                                    <div class="main-border-button border-no-active"><a href="#">Donwloaded</a></div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- ***** Gaming Library End ***** -->
-                {% endcomment %}
             </div>
         </div>
     </div>
-</div>
-
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <p>Follow me on
-                    <br><br>
-                  <a href="https://www.linkedin.com/in/midhuns98/" style="margin-right:10px" target="_blank"><i class="fa-brands fa-linkedin fa-2x"></i></a>
-                  <a href="https://github.com/midhun98" style="margin-right:10px" target="_blank"><i class="fa-brands fa-github fa-2x"></i></a>
-                  <a href="https://www.instagram.com/midhun.1/" style="margin-right:10px" target="_blank"><i class="fa-brands fa-instagram fa-2x"></i></a>
-                  <a href="https://wa.link/i7i65w" style="margin-right:10px" target="_blank"><i class="fa-brands fa-whatsapp fa-2x"></i></a>
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-
-<!-- Scripts -->
-<!-- Bootstrap core JavaScript -->
-<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
-<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
-
-<script src="{% static 'assets/js/isotope.min.js' %}"></script>
-<script src="{% static 'assets/js/owl-carousel.js' %}"></script>
-<script src="{% static 'assets/js/tabs.js' %}"></script>
-<script src="{% static 'assets/js/popup.js' %}"></script>
-<script src="{% static 'assets/js/custom.js' %}"></script>
-<script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
-
-</body>
-
-</html>
+{% endblock %}
